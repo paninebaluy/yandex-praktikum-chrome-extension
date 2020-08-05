@@ -7,7 +7,7 @@ function sendMessageToActiveTab(message, callback) {
 document.getElementsByClassName("popup__link_download-all-tabs")[0]
     .addEventListener("click", function (event) {
         sendMessageToActiveTab({
-            ext: "Praktikum",
+            ext: "Practicum",
             action: "downloadAllTabsContent"
         });
         event.preventDefault();
@@ -16,7 +16,7 @@ document.getElementsByClassName("popup__link_download-all-tabs")[0]
 document.querySelector(".popup__link_share-all-tabs")
     .addEventListener("click", function (event) {
         sendMessageToActiveTab({
-            ext: "Praktikum",
+            ext: "Practicum",
             action: "shareAllTabsContent"
         });
         event.preventDefault();

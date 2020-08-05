@@ -67,14 +67,14 @@ function initTabCodeParsing(index) {
 
     const scriptElement2 = document.createElement('script');
     scriptElement2.classList.add('injectScript');
-    scriptElement2.setAttribute('src', chrome.runtime.getURL('trainer-get-tabs-code.js'));
+    scriptElement2.setAttribute('src', chrome.runtime.getURL('platform-get-tabs-code.js'));
     document.body.appendChild(scriptElement2);
 }
 
 function initAllTabsCodeParsing() {
     const scriptElement2 = document.createElement('script');
     scriptElement2.classList.add('injectScript');
-    scriptElement2.setAttribute('src', chrome.runtime.getURL('trainer-get-tabs-code.js'));
+    scriptElement2.setAttribute('src', chrome.runtime.getURL('platform-get-tabs-code.js'));
     document.body.appendChild(scriptElement2);
 }
 
@@ -128,7 +128,7 @@ function cleanUpParsedCode(index) {
 
 function downloadTab(tabCode, tabName) {
     chrome.runtime.sendMessage({
-        ext: "Praktikum",
+        ext: "Practicum",
         action: "download",
         tabCode: tabCode,
         tabName: tabName
@@ -137,7 +137,7 @@ function downloadTab(tabCode, tabName) {
 
 function shareTabsWithCodepen(allTabsData) {
     chrome.runtime.sendMessage({
-        ext: "Praktikum",
+        ext: "Practicum",
         action: "shareTabsWithCodepen",
         tabsData: allTabsData
     });
@@ -145,7 +145,7 @@ function shareTabsWithCodepen(allTabsData) {
 
 function downloadTabsAsArchive(allTabsData) {
     chrome.runtime.sendMessage({
-        ext: "Praktikum",
+        ext: "Practicum",
         action: "downloadTabsAsArchive",
         tabsData: allTabsData
     });
@@ -195,7 +195,7 @@ async function shareAllTabsContent() {
 
 
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-    if (request.ext !== "Praktikum") {
+    if (request.ext !== "Practicum") {
         return;
     }
     if (request.action === "downloadAllTabsContent") {

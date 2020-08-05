@@ -4,11 +4,11 @@ chrome.runtime.onInstalled.addListener(function () {
             {
                 conditions: [
                     new chrome.declarativeContent.PageStateMatcher({
-                        pageUrl: { hostEquals: 'praktikum.yandex.ru', pathPrefix: '/trainer/' }
+                        pageUrl: { hostEquals: 'practicum.yandex.com', pathPrefix: '/trainer/' } // for the U.S. version
                     }),
                     new chrome.declarativeContent.PageStateMatcher({
-                        pageUrl: { hostEquals: 'practicum.yandex.com', pathPrefix: '/trainer/' }
-                    })
+                        pageUrl: { hostEquals: 'praktikum.yandex.ru', pathPrefix: '/trainer/' } // for the RU version
+                    }),
                 ],
                 actions: [new chrome.declarativeContent.ShowPageAction()]
             }
@@ -17,7 +17,7 @@ chrome.runtime.onInstalled.addListener(function () {
 });
 
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-    if (request.ext !== "Praktikum") {
+    if (request.ext !== "Practicum") {
         return;
     }
     if (request.action === "download") {
@@ -36,7 +36,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 
 function shareTabsWithCodepen(allTabsData){
     const data = {
-        "title": "Praktikum", 
+        "title": "Practicum", 
         "html": allTabsData.filter(tab=>tab.tabName == 'index.html')[0].tabCode,
         "css": allTabsData.filter(tab=>tab.tabName.match(/css$/))
             .map(tab => `\n\n/* file: ${tab.tabName}*/\n\n${tab.tabCode}`)
@@ -70,7 +70,7 @@ function download(tabCode, tabName) {
 }
 
 function getArchiveFilename() {
-    return "praktikum" + Date.now() + ".zip";
+    return "Practicum" + Date.now() + ".zip";
 }
 
 function addScreenshot(zip, callback) {

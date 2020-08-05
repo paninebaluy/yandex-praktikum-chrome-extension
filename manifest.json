@@ -1,20 +1,20 @@
 {
-    "name": "Yandex.Praktikum chrome extensions",
-    "description": "Additional features for Yandex.Praktikum trainer",
+    "name": "Practicum by Yandex chrome extension",
+    "description": "Additional features for the Practicum platform",
     "version": "1.0",
     "permissions": [
-      "https://praktikum.yandex.ru/trainer/*",
       "https://practicum.yandex.com/trainer/*",
+      "https://praktikum.yandex.ru/trainer/*",
       "activeTab",
       "downloads",
       "declarativeContent"
     ],
     "page_action": {
       "default_icon": {
-        "16": "praktikum-icon.png",
-        "32": "praktikum-icon.png",
-        "48": "praktikum-icon.png",
-        "128": "praktikum-icon.png"
+        "16": "practicum-icon.png",
+        "32": "practicum-icon.png",
+        "48": "practicum-icon.png",
+        "128": "practicum-icon.png"
       },
       "default_popup": "popup.html"
     },
@@ -27,21 +27,21 @@
     },
     "content_scripts": [{
         "matches": [
-          "https://praktikum.yandex.ru/trainer/*",
-          "https://practicum.yandex.com/trainer/*"
+          "https://practicum.yandex.com/trainer/*",
+          "https://praktikum.yandex.ru/trainer/*"
         ],
-        "js": ["trainer-content.js"],
-        "css": ["trainer-content.css"],
+        "js": ["platform-content.js"],
+        "css": ["platform-content.css"],
         "run_at": "document_idle"
     }],
     "web_accessible_resources": [
-      "trainer-get-tabs-code.js"
+      "platform-get-tabs-code.js"
     ],
     "icons": {
-      "16": "praktikum-icon.png",
-      "32": "praktikum-icon.png",
-      "48": "praktikum-icon.png",
-      "128": "praktikum-icon.png"
+      "16": "practicum-icon.png",
+      "32": "practicum-icon.png",
+      "48": "practicum-icon.png",
+      "128": "practicum-icon.png"
     },
     "manifest_version": 2
 }
